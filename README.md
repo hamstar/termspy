@@ -1,3 +1,5 @@
+![termspy logo](http://i.imgur.com/pAFQk.png)
+
 termspy
 =======
 
