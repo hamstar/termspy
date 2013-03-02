@@ -1,0 +1,3 @@
+---
+Termspy:
+  :enabled_scrapers: # [ :facebook, :twitter ]
