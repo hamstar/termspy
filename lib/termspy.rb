@@ -11,9 +11,22 @@ module Termspy
       YAML::load_file(config_file)["Termspy"]
     end
 
-    def enabled_scrapers
-      config[:enabled_scrapers]
+    def enabled_documents
+      config[:enabled_documents]
     end
+
+    def output_path(output)
+      "lib/termspy/outputs/#{output}.rb"
+    end
+
+    def parser_path(parser)
+      "lib/termspy/parsers/#{parser}.rb"
+    end
+
+    def scraper_path(document)
+      "lib/termspy/scraper/#{document}.rb"
+    end
+
 
   end
 end

@@ -1,3 +1,4 @@
 ---
 Termspy:
-  :enabled_scrapers: # [ :facebook, :twitter ]
+  :enabled_scrapers: :reddit_user_agreement # [ :facebook, :twitter ]
+  :enabled_outputs: :gollum

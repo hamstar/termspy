@@ -1,7 +1,12 @@
 module Termspy
   class Parser
-    def initialize(body)
-      @body = body
+
+    attr_reader :body, :document
+
+    def initialize(scraper)
+      @body = scraper.body
+      @document = scraper.document
+      @scraper = scraper
     end
 
     def parse
@@ -13,5 +18,10 @@ module Termspy
 
     def preprocess; end
     def postprocess; end
+
+    def self.load(scraper)
+      raise InvalidParserError, "Invalid parser type: #{scraper.document}" if !require Cda.parser_path(scraper.document)
+      Parser.new(scraper)
+    end
   end
 end
