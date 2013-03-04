@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require 'termspy'
+
+config = Termspy.config
+
+begin
+  config.enabled_documents do |document|
+    
+    # Do the scraping
+    s = Scraper.load document
+    s.scrape
+    
+    # Do the parsing
+    p = Parser.load s
+    p.parse
+
+    # Output into the formats needed
+    config.enabled_outputs.each do |output|
+       Output.load(output).save( p )
+    end
+  end
+rescue InvalidOutputError => e
+  warn e.message
+end
