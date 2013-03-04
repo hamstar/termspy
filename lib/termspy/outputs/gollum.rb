@@ -7,7 +7,7 @@ module Termspy
       def save(parser)
         g = Gollum.wiki( Cda.outputs[:gollum] )
 	p = g.page parser.title
-	p.content = parser.markdown
+	p.content = parser.content :markdown
 	p.save
       end
 

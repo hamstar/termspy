@@ -1,19 +1,25 @@
+require 'pandoc'
+
 module Termspy
   class Parser
 
     attr_reader :body, :document
 
-    def initialize(scraper)
+    def parse(scraper)
       @body = scraper.body
       @document = scraper.document
       @scraper = scraper
-    end
 
-    def parse
-      #@body = Pandoc::HTML.to_markdown(@body)
       preprocess
       postprocess
-      @body
+    end
+
+    def content(format=nil)
+      return @body if format.nil?
+      case format
+      when :markdown
+        return Pandoc::HTML.to_markdown(@body)
+      end
     end
 
     def preprocess; end
