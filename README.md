@@ -23,5 +23,13 @@ This site should link to http://www.tos-dr.info whenever it can so that people w
 
 ## Technology
 
-* a ruby framework
-* gollum git wiki
+* termspy gem
+ * scrapes terms pages
+ * parses them into gollum in the specified format
+* pandoc
+ * convert ToS pages html to markdown
+* gollum
+ * site administration
+ * utilize custom.css and custom.js
+* smeagol
+ * static serving of the gollum wiki
